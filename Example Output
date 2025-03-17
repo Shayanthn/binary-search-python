@@ -1,0 +1,15 @@
+##in persian ##
+LOTFAN 20 ADAD VARED KONID:
+adad 1: 25
+adad 2: 14
+adad 3: 8
+...
+adad 20: 100
+
+📌 Sorted List: [3, 8, 14, 25, 37, ..., 100]
+
+adad mored nazar baraye jostejoo: 25
+✅ adad 25 vojood darad dar index 3
+
+adad mored nazar baraye jostejoo: 150
+❌ No Found!
