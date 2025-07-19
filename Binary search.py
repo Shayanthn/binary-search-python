@@ -1,35 +1,29 @@
 from bisect import bisect_left
 
 def binary_search(arr: list[int], target: int) -> int:
-    """Performs binary search using bisect for high performance."""
+    """Efficient binary search using bisect module."""
     idx = bisect_left(arr, target)
-    if idx != len(arr) and arr[idx] == target:
-        return idx
-    return -1
+    return idx if idx < len(arr) and arr[idx] == target else -1
 
-def get_numbers(count: int = 20) -> list[int]:
-    numbers = []
-    print(f"Please enter {count} integers:")
-    while len(numbers) < count:
+def get_numbers(n: int = 20) -> list[int]:
+    print(f"Enter {n} integers:")
+    nums = []
+    while len(nums) < n:
         try:
-            num = int(input(f"{len(numbers)+1}: "))
-            numbers.append(num)
+            nums.append(int(input(f"{len(nums)+1}> ")))
         except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return sorted(numbers)
+            print("⚠️ Invalid input. Try again.")
+    return sorted(nums)
 
 def main():
     numbers = get_numbers()
-    print(f"\nSorted list: {numbers}")
+    print(f"\n🔢 Sorted List: {numbers}")
     try:
-        target = int(input("Enter number to search: "))
-        index = binary_search(numbers, target)
-        if index != -1:
-            print(f"\n✅ Found {target} at index {index}.")
-        else:
-            print("\n❌ Number not found.")
+        target = int(input("\n🎯 Enter number to search: "))
+        result = binary_search(numbers, target)
+        print(f"\n✅ Found at index {result}." if result != -1 else "\n❌ Not found.")
     except ValueError:
-        print("Invalid input.")
+        print("⚠️ Invalid input.")
 
 if __name__ == "__main__":
     main()
